@@ -147,12 +147,12 @@ onBeforeMount(() => {
           display: flex;
 
           &:first-child {
-            border-radius: 15px 0 0 15px;
+            border-radius: 14px 0 0 14px;
           }
 
           &:last-child {
             border-left: 1px solid #6f6f6f;
-            border-radius: 0 15px 15px 0;
+            border-radius: 0 14px 14px 0;
           }
         }
 

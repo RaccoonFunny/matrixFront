@@ -3,6 +3,8 @@ import {ref, onBeforeMount} from 'vue'
 import MatrixSelect from "~/component/matrixSelect.vue";
 import MatrixSelectSmall from "~/component/matrixSelectSmall.vue";
 import MatrixDiagram from "~/component/matrix-diagram.vue";
+import MatrixTable from "~/component/matrix-table.vue";
+import MatrixTexts from "~/component/matrix-texts.vue";
 
 const days = ref({
   // Объект для дней в каждом месяце
@@ -63,14 +65,40 @@ onBeforeMount(() => {
           </div>
         </div>
         <div class="right">
+          <div class="table">
+            <matrix-table/>
+          </div>
+          <div class="harmony">
 
+          </div>
         </div>
+      </div>
+      <div class="fantasy">
+        <matrix-texts/>
+        <matrix-texts/>
+        <matrix-texts/>
+        <matrix-texts/>
+        <matrix-texts/>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .wrapper {
   width: 1140px;
   margin: 0 auto;
@@ -83,17 +111,18 @@ onBeforeMount(() => {
 
 .calc {
   display: flex;
+  gap: 30px;
   .left {
     width: 50%;
     .date {
-      width: 380px;
+      //width: 380px;
       background: white;
       border-radius: 15px;
       box-shadow: 0 0 40px rgba(198, 198, 198, 0.25);
       padding: 30px;
       .row {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
       }
       .btn {
         padding: 20px 40px 20px 40px;
@@ -102,13 +131,33 @@ onBeforeMount(() => {
         border-radius: 20px;
         color: #fff;
         font-family: Roboto, sans-serif;
-        margin-top: 30px;
         cursor: pointer;
+        margin: 30px auto 0 auto;
+        &:hover {
+          animation: pulse 1s linear infinite;
+        }
       }
+    }
+    .matrix {
+      margin-top: 40px;
+      //width: 380px;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(198, 198, 198, 0.25);
+
     }
   }
   .right {
     width: 50%;
+
+    .table {
+      //width: 380px;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(198, 198, 198, 0.25);
+    }
   }
 }
 </style>
